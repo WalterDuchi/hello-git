@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+import exifread
 
 # Directorio de origen
 directorio = r'C:\Users\Walter Duchi\Pictures\prueba'
@@ -21,8 +22,20 @@ for archivo in archivos:
     # Obtener la fecha de modificación del archivo
     fecha_modificacion = datetime.fromtimestamp(os.path.getmtime(ruta_completa))
     
-    # Determinar la fecha más antigua entre la fecha de creación y la fecha de modificación
-    fecha_antigua = min(fecha_creacion, fecha_modificacion)
+    # Intentar obtener la fecha de "Date Taken" del archivo
+    try:
+        with open(ruta_completa, 'rb') as f:
+            tags = exifread.process_file(f, details=False)
+            fecha_taken = datetime.strptime(str(tags['EXIF DateTimeOriginal']), '%Y:%m:%d %H:%M:%S')
+    except Exception as e:
+        # Si no se puede obtener la fecha de "Date Taken", asignar None
+        fecha_taken = None
+    
+    # Determinar la fecha más antigua entre la fecha de creación, fecha de modificación y fecha de "Date Taken"
+    fechas = [fecha_creacion, fecha_modificacion]
+    if fecha_taken:
+        fechas.append(fecha_taken)
+    fecha_antigua = min(fechas)
     
     # Formatear la fecha como deseas para el nuevo nombre de archivo
     nuevo_nombre = fecha_antigua.strftime('%m-%d-%Y %H-%M-%S') + os.path.splitext(archivo)[1]
