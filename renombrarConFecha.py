@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-import exifread
 
 # Directorio de origen
 directorio = r'C:\Users\Walter Duchi\Pictures\prueba'
@@ -19,24 +18,20 @@ for archivo in archivos:
     # Obtener la fecha de creación del archivo
     fecha_creacion = datetime.fromtimestamp(os.path.getctime(ruta_completa))
     
-    # Intentar obtener la fecha de "Date Taken" del archivo
-    try:
-        with open(ruta_completa, 'rb') as f:
-            tags = exifread.process_file(f, details=False)
-            fecha_tomada = datetime.strptime(str(tags['EXIF DateTimeOriginal']), '%Y:%m:%d %H:%M:%S')
-    except Exception as e:
-        # Si no se puede obtener la fecha de "Date Taken", usar la fecha de creación del archivo
-        print(f"No se pudo obtener la fecha de 'Date Taken' para {archivo}. Se usará la fecha de creación.")
-        fecha_tomada = fecha_creacion
+    # Obtener la fecha de modificación del archivo
+    fecha_modificacion = datetime.fromtimestamp(os.path.getmtime(ruta_completa))
+    
+    # Determinar la fecha más antigua entre la fecha de creación y la fecha de modificación
+    fecha_antigua = min(fecha_creacion, fecha_modificacion)
     
     # Formatear la fecha como deseas para el nuevo nombre de archivo
-    nuevo_nombre = fecha_tomada.strftime('%m-%d-%Y %H-%M-%S') + os.path.splitext(archivo)[1]
+    nuevo_nombre = fecha_antigua.strftime('%m-%d-%Y %H-%M-%S') + os.path.splitext(archivo)[1]
     
     # Verificar si el nuevo nombre ya existe
     while os.path.exists(os.path.join(directorio, nuevo_nombre)):
         # Si el nuevo nombre ya existe, agregar un contador al nombre del archivo
         contador[nuevo_nombre] = contador.get(nuevo_nombre, 0) + 1
-        nuevo_nombre = fecha_tomada.strftime('%m-%d-%Y %H-%M-%S') + f" ({contador[nuevo_nombre]})" + os.path.splitext(archivo)[1]
+        nuevo_nombre = fecha_antigua.strftime('%m-%d-%Y %H-%M-%S') + f" ({contador[nuevo_nombre]})" + os.path.splitext(archivo)[1]
     
     # Renombrar el archivo con el nuevo nombre
     os.rename(ruta_completa, os.path.join(directorio, nuevo_nombre))
