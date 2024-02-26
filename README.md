@@ -1,49 +1,22 @@
-[Indicaciones para inicio Curso Nivel Intermedio con Francisco Ochoa | Curso inglés GRATIS (youtube.com)](https://www.youtube.com/watch?v=qojCwCsvNuI&list=PLgrNDDl9MxYnEdk44FImtEOFKHk97qH2a)
-[English Vocabulary (languageguide.org)](https://www.languageguide.org/english/vocabulary/)
-https://www.linkedin.com/learning/paths/fundamentos-profesionales-en-ciberseguridad-por-microsoft-y-linkedin?src=direct%2Fnone&veh=direct%2Fnone%7Cdirect%2Fnone
-[ZType – Typing Game - Type to Shoot](https://zty.pe/)
-https://claseflix.com/
-[Descargar video Youtube 4K - Descargador de YouTube en línea | Y2meta](https://y2meta.app/es9)
+# Renombrar grupos de archivos en local a partir de la fecha más antigua de sus metadatos 
+## Renombrar archivos con la fecha más antigua
 
+Este script de Python te permite renombrar archivos en un directorio dado utilizando la fecha más antigua entre la fecha de creación, la fecha de modificación y la fecha de "Date Taken" (si está disponible en los metadatos EXIF de las imágenes).
 
-[Crea tarjetas y regalos virtuales gratis en Gifft.me](https://gifft.me/es/create)
-[Webmii](https://webmii.com/)
-[SRI en Línea - Consulta de Impuesto a la Renta y Salida de Divisas](https://srienlinea.sri.gob.ec/sri-en-linea/SriDeclaracionesWeb/ConsultaImpuestoRenta/Consultas/consultaImpuestoRenta)
-[Truecaller: la mejor app global de identificación de llamadas y bloqueo de llamadas](https://www.truecaller.com/es-la)
+### Requisitos
 
-[Clipdrop - Relight](https://clipdrop.co/relight)
-[iFixit: El Manual de Reparación Gratuito](https://es.ifixit.com/)
-[Today's Current Fortnite Item Shop - Fortnite.GG](https://fortnite.gg/shop)
-[FakeYou. Deep Fake Text to Speech. | FakeYou](https://fakeyou.com/tts)
-[Tome](https://tome.app/universidad-de-guayaquil-a7f)
-[Luma AI - Fields Dashboard (lumalabs.ai)](https://lumalabs.ai/dashboard/captures)
-[Rask](https://app.rask.ai/)
-[FakeUpdate.net - Windows Update Prank by fediaFedia](https://fakeupdate.net/)
-[Trip Planner AI: Free & Customizable Travel Itinerary App](https://tripplanner.ai/new-trip)
-[DAREBEE - Fitness On Your Terms.](https://darebee.com/)
-[Wonder Dynamics](https://app.wonderdynamics.com/)
-[Login - Durable](https://app.durable.co/login?redirect=%2Fbusiness-selector%3Forigin%3Dlogin)
-[Adobe Firefly](https://firefly.adobe.com/upload/inpaint)
-[Editor de Fotos en Línea - Editar Fotos en Línea Gratis - Impulsado por AI (snapedit.app)](https://snapedit.app/es/remove-object)
-[ChefGPT - Your AI-Powered Personal Chef](https://www.chefgpt.xyz/es/pantryChef)
-[Clipdrop - Uncrop](https://clipdrop.co/uncrop)
-[megvii-research/nafnet – Run with an API on Replicate](https://replicate.com/megvii-research/nafnet)
-[Kartiv - Homepage](https://app.kartiv.com/dashboard/projects/87e6bf28-05de-4172-b81d-2be981e76715?type=guide)
-[Poe](https://poe.com/)
-[Musicfy](https://create.musicfy.lol/)
-[Generate Whatsapp Chat– Fake Whatsapp Chat Generator - FakeDetail.com](https://fakedetail.com/fake-whatsapp-chat-generator)
-[charley.ai/get-started](https://charley.ai/get-started)
-[Kits AI - the ultimate AI voice generation toolkit to supercharge your music](https://app.kits.ai/)
-[Helping people become more creative. (ideogram.ai)](https://ideogram.ai/t/trending)
-[Riffusion](https://www.riffusion.com/)
-[HeyGen - AI Spokesperson Video Creator](https://app.heygen.com/home)
-[collov.ai](https://collov.ai/studio/)
-[AutoDraw](https://www.autodraw.com/)
-[Playground - AI Comic Factory](https://aicomicfactory.com/playground)
-[Dashboard - Runway (runwayml.com)](https://app.runwayml.com/video-tools/teams/waltduchi/dashboard)
-[PixelBin](https://console.pixelbin.io/organization/3444851/new-playground/erasebg?utm_source=upscalemedia)
-[PixelBin](https://console.pixelbin.io/organization/3444851/new-playground/upscalemedia?utm_source=upscalemedia)
-[Visla](https://app.visla.us/home)
-[Mejorar Calidad de Imagen Online - Aumentar Calidad de Una Imagen - Upscale Media](https://www.upscale.media/es)
-[GitMind](https://gitmind.com/app/templates?lang=es&appfrom=win&apptype=saas)
-[Microsoft Designer - Stunning designs in a flash](https://designer.microsoft.com/)
+- Python 3.x instalado en tu sistema.
+- La biblioteca `exifread` debe estar instalada. Puedes instalarla ejecutando el siguiente comando en tu terminal o símbolo del sistema:
+    `pip install exifread`
+    
+### Cómo usar
+
+1. Clona o descarga el archivo `renombrarConFecha.py` en tu sistema.
+2. Abre una terminal o símbolo del sistema.
+3. Navega hasta el directorio donde guardaste el archivo `renombrarConFecha.py`.
+4. Ejecuta el script utilizando Python:
+    `python renombrarConFecha.py`
+5. El script buscará archivos en el directorio especificado y los renombrará con el formato "año-mes-día hora-minuto-segundo.extensión", utilizando la fecha más antigua entre la fecha de creación, la fecha de modificación y la fecha de "Date Taken".
+6. Si hay archivos con nombres duplicados después de haber sido renombrados, el script agregará un número entre paréntesis para evitar conflictos de nombres.
+
+¡Eso es todo! Ahora tus archivos estarán ordenados según sus fechas más antiguas.
